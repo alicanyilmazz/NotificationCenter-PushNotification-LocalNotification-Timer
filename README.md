@@ -71,7 +71,15 @@ class Persons{
 
 ## Notifications
 
+> App permission can be asked to the user within the app.
 
+> If the application permission is taken, about the application in the settings
+panel is allowed.
+
+> Once permission is obtained, there is no need to obtain permission again.
+
+> AppDelegate didFinishLaunchingWithOptions() method
+permission may be obtained.
 
 
 

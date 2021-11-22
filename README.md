@@ -1,4 +1,4 @@
-### Notification Center
+## Notification Center
 
 > Notification center is not a notification process as it is thought.
 
@@ -69,7 +69,7 @@ class Persons{
     }
 ```
 
-
+## Notifications
 
 
 

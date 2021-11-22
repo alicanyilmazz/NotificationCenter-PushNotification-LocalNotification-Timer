@@ -82,14 +82,14 @@ panel is allowed.
 permission may be obtained.
 
 ```swift
-      UNUserNotificationCenter.current().requestAuthorization(options: [.alert , .sound , .badge]) { granted, error in
-        self.permissionControl = granted
-        if granted{
-           print("Permission was confirmed.")
-        }else{
-           print("Permission was not confirmed.")
-            }
-        }
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert , .sound , .badge]) { granted, error in
+      self.permissionControl = granted
+      if granted{
+         print("Permission was confirmed.")
+      }else{
+         print("Permission was not confirmed.")
+           }
+      }
 ```
 
 

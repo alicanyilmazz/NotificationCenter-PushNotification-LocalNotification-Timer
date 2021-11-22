@@ -1,6 +1,7 @@
 ### Notification Center
 
-
+> Let's say we have 2 viewcontrollers.
+> 
 
 ```swift
 class Persons{

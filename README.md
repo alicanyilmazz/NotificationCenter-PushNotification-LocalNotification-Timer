@@ -81,6 +81,8 @@ panel is allowed.
 > AppDelegate didFinishLaunchingWithOptions() method
 permission may be obtained.
 
+### Getting permission for the app
+
 ```swift
     import UIKit
     import UserNotifications

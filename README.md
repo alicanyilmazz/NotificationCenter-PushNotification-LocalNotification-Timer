@@ -81,7 +81,16 @@ panel is allowed.
 > AppDelegate didFinishLaunchingWithOptions() method
 permission may be obtained.
 
-
+```swift
+      UNUserNotificationCenter.current().requestAuthorization(options: [.alert , .sound , .badge]) { granted, error in
+        self.permissionControl = granted
+        if granted{
+           print("Permission was confirmed.")
+        }else{
+           print("Permission was not confirmed.")
+            }
+        }
+```
 
 
 

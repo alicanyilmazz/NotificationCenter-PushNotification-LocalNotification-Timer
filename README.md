@@ -218,3 +218,37 @@ permission may be obtained.
   }
     
 ```
+
+### Notification Click and Badge Reset
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   // This extension using for foreground notifications
+extension ViewController : UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner , .sound , .badge])
+    }
+    
+    // This method using for Badge Reset When Notification Clicked.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let app = UIApplication.shared
+        
+        if app.applicationState == .active{
+            print("clicked when on foregorund.")
+            app.applicationIconBadgeNumber = 0
+        }
+        
+        if app.applicationState == .inactive{
+            print("clicked when on background.")
+            app.applicationIconBadgeNumber = 0
+        }
+        
+        completionHandler()
+    }
+ }
+  
+}
+    
+```

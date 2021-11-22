@@ -134,3 +134,32 @@ permission may be obtained.
 ![mm2](https://user-images.githubusercontent.com/49749125/142908404-2c8f35fe-1214-4bea-859b-089dbfaee336.png)
 
 ### Timely Triggering of Notification
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false) // timeInterval : after how many seconds , repeats : would you repeat
+    
+```
+### Creating Request for Notification
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   let notificationRequest = UNNotificationRequest(identifier: "XNotification", content: content, trigger: trigger)
+    
+```
+
+### Running Notification
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   // we use withCompletionHandler to take another action when the notification is clicked.
+   UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
+    
+```
+

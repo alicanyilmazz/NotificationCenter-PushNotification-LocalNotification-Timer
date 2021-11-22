@@ -106,6 +106,30 @@ permission may be obtained.
     
    }
 ```
+### Creating Notification Content
 
+```swift
+   import UIKit
+   import UserNotifications
+   
+   @IBAction func createNotification(_ sender: UIButton) {
+        
+     if permissionControl{
+         let content = UNMutableNotificationContent()
+         content.title = "Title"
+         content.subtitle = "SubTitle"
+         content.body = "Message"
+         content.badge = 1
+         content.sound = UNNotificationSound.default
+            
+         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+         let notificationRequest = UNNotificationRequest(identifier: "XNotification", content: content, trigger: trigger)
+            
+         // we use withCompletionHandler to take another action when the notification is clicked.
+         UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
+        }
+    }
+    
+```
 
 

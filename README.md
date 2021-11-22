@@ -50,5 +50,4 @@ class Persons{
 ```swift
    let person = Persons(personName: "Alican", personAge: 26)
    NotificationCenter.default.post(name: .notificationName, object: nil, userInfo: ["message" : "hello" , "todaysDate" : Date(), "data" : person]) 
-   dismiss(animated: true, completion: nil)
 ```

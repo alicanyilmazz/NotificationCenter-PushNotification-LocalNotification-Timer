@@ -163,3 +163,58 @@ permission may be obtained.
     
 ```
 
+### Notification Working While the Application is in the Foreground
+
+> It only works in the background with the initial version of the notification encoding.
+
+> The following coding should be done to make it work in the foreground.
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   // This extension using for foreground notifications
+   extension ViewController : UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping        (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner , .sound , .badge])
+    }
+}
+    
+```
+> And below code should be run in viewDidLoad.
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   // This extension using for foreground notifications
+   extension ViewController : UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping        (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner , .sound , .badge])
+    }
+ }
+    
+```
+
+> And below code should be run in viewDidLoad.
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+        
+      UNUserNotificationCenter.current().delegate = self // --> This code added because necessary for our extensions
+
+      UNUserNotificationCenter.current().requestAuthorization(options: [.alert , .sound , .badge]) { granted, error in
+          self.permissionControl = granted
+          if granted{
+             print("Permission was confirmed.")
+          }else{
+             print("Permission was not confirmed.")
+          }
+      }
+  }
+    
+```

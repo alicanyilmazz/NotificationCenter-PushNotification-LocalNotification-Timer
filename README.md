@@ -82,14 +82,27 @@ panel is allowed.
 permission may be obtained.
 
 ```swift
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert , .sound , .badge]) { granted, error in
-      self.permissionControl = granted
-      if granted{
-         print("Permission was confirmed.")
-      }else{
-         print("Permission was not confirmed.")
-           }
-      }
+    import UIKit
+    import UserNotifications
+    
+    class ViewController : UIViewController{
+    
+        var permissionControl : Bool = false
+    
+        override func viewDidLoad(){
+            super.viewDidLoad()
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert , .sound , .badge]) { granted, error in
+                self.permissionControl = granted
+                if granted{
+                    print("Permission was confirmed.")
+                }else{
+                    print("Permission was not confirmed.")
+                }
+            }
+        }
+    
+   }
 ```
 
 

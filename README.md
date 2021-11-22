@@ -255,6 +255,8 @@ extension ViewController : UNUserNotificationCenterDelegate{
 
 > Repeated statements must be a minimum of 60 seconds.
 
+#### Temporal Repetitions (with Seconds Type)
+
 > It generates the first notification 60 seconds after it is run and at 60 second intervals. Starts to repeat.
 
 ```swift

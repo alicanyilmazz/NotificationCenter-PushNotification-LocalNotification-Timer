@@ -9,6 +9,10 @@
 - Notification Center: If it is a radio station
 - Observer: Radio
 
+
+![mm1](https://user-images.githubusercontent.com/49749125/142889530-6c7bd0bc-a6b0-41c0-835f-a14a20060620.png)
+
+
 ```swift
 class Persons{
     var personName : String?

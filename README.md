@@ -252,3 +252,15 @@ extension ViewController : UNUserNotificationCenterDelegate{
     
 ```
 ### Repeated Notification
+
+> Repeated statements must be a minimum of 60 seconds.
+
+> It generates the first notification 60 seconds after it is run and at 60 second intervals. Starts to repeat.
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
+   
+```

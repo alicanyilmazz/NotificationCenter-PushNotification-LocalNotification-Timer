@@ -53,3 +53,27 @@ class Persons{
 ```
 > Data is sent in dictionary format with userInfo.
 
+### Capture and Listen to Notification
+
+```swift
+   // We will handle broadcast (comed from Notification Center)
+   NotificationCenter.default.addObserver(self, selector: #selector(makeSomething(notification:)), name: .notificationName, object: nil)
+```
+
+```swift
+    @objc func makeSomething(notification : Notification){
+      let comedMessage = notification.userInfo?["message"]
+      let comedDate = notification.userInfo?["todaysDate"]
+      let comedData = notification.userInfo?["data"] as! Persons
+      dataLabel.text = "\(comedData.personName!) \(comedData.personAge!)"
+    }
+```
+
+
+
+
+
+
+
+
+

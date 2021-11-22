@@ -51,3 +51,5 @@ class Persons{
    let person = Persons(personName: "Alican", personAge: 26)
    NotificationCenter.default.post(name: .notificationName, object: nil, userInfo: ["message" : "hello" , "todaysDate" : Date(), "data" : person]) 
 ```
+> Data is sent in dictionary format with userInfo.
+

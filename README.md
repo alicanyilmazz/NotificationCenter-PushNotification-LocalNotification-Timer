@@ -24,6 +24,10 @@ extension Notification.Name{
 
 > We use the key value pair structure when sending notifications.
 
+> With userInfo, we can send data in the form of key value pairs in the array.
+
+> But I want to show that we can create a class and use an object as follows.
+
 ```swift
 class Persons{
     var personName : String?

@@ -247,8 +247,7 @@ extension ViewController : UNUserNotificationCenterDelegate{
         
         completionHandler()
     }
- }
-  
+  }  
 }
     
 ```

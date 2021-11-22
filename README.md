@@ -263,6 +263,67 @@ extension ViewController : UNUserNotificationCenterDelegate{
    import UIKit
    import UserNotifications
    
-   let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
-   
+   let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true) // 60 seconds
+   let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: true) // 1 hour
+   let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true) // 1 day
 ```
+#### Temporal Repetitions (with Date Type)
+
+> When the specified date is met, the first notification occurs and according to the date. It repeats.
+> IMPORTANT :  However, when we specify the exact date (day month year), there is no point in repeating it because that date can only come once.
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+    @IBAction func sendNotificationClicked(_ sender: UIButton) {
+        if permissionControl{
+            let content = UNMutableNotificationContent()
+            content.title = "Title"
+            content.subtitle = "SubTitle"
+            content.body = "Message"
+            content.badge = 1
+            content.sound = UNNotificationSound.default
+            
+            var date = DateComponents()
+            date.day = 22
+            date.month = 11
+            date.year = 2021
+            date.hour = 17
+            date.minute = 48
+            
+            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: true) // we no longer use this.
+            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+            let notificationRequest = UNNotificationRequest(identifier: "XNotification", content: content, trigger: trigger)
+            
+            // we use withCompletionHandler to take another action when the notification is clicked.
+            UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
+        }
+    }
+```
+
+> We now use UNCalendarNotificationTrigger instead of UNTimeIntervalNotificationTrigger.
+
+> We mentioned that specifying the full date is unreasonable in terms of repetition.
+
+> So how do you make this logical?
+
+> When the specified date is met, the first notification occurs and according to the date. It repeats.
+
+> It works every 8:30 below.
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+   var date = DateComponents()
+   //date.day = 22
+   //date.month = 11
+   //date.year = 2021
+   date.hour = 8
+   date.minute = 30
+   
+   let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+   
+``` 
+

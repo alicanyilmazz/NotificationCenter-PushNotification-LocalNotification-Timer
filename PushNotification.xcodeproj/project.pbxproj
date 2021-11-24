@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A829AB6274BE292008F8661 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A829AB5274BE292008F8661 /* TimeViewController.swift */; };
+		5A99C130274E573300CF2C73 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99C12F274E573300CF2C73 /* ActionViewController.swift */; };
 		5A9BEE5D274AC6B4005D6C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9BEE5C274AC6B4005D6C18 /* AppDelegate.swift */; };
 		5A9BEE5F274AC6B4005D6C18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9BEE5E274AC6B4005D6C18 /* SceneDelegate.swift */; };
 		5A9BEE61274AC6B4005D6C18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9BEE60274AC6B4005D6C18 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A829AB5274BE292008F8661 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		5A99C12F274E573300CF2C73 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		5A9BEE59274AC6B4005D6C18 /* PushNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9BEE5C274AC6B4005D6C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A9BEE5E274AC6B4005D6C18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				5A9BEE5C274AC6B4005D6C18 /* AppDelegate.swift */,
 				5A9BEE5E274AC6B4005D6C18 /* SceneDelegate.swift */,
 				5A9BEE60274AC6B4005D6C18 /* ViewController.swift */,
+				5A829AB5274BE292008F8661 /* TimeViewController.swift */,
+				5A99C12F274E573300CF2C73 /* ActionViewController.swift */,
 				5A9BEE62274AC6B4005D6C18 /* Main.storyboard */,
 				5A9BEE65274AC6B6005D6C18 /* Assets.xcassets */,
 				5A9BEE67274AC6B6005D6C18 /* LaunchScreen.storyboard */,
@@ -139,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A9BEE61274AC6B4005D6C18 /* ViewController.swift in Sources */,
+				5A99C130274E573300CF2C73 /* ActionViewController.swift in Sources */,
+				5A829AB6274BE292008F8661 /* TimeViewController.swift in Sources */,
 				5A9BEE5D274AC6B4005D6C18 /* AppDelegate.swift in Sources */,
 				5A9BEE5F274AC6B4005D6C18 /* SceneDelegate.swift in Sources */,
 			);

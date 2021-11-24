@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Using for foregorund notifications
         UNUserNotificationCenter.current().delegate = self
 
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert , .sound , .badge]) { granted, error in
@@ -39,7 +38,7 @@ class ViewController: UIViewController {
             content.badge = 1
             content.sound = UNNotificationSound.default
             
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
             let notificationRequest = UNNotificationRequest(identifier: "XNotification", content: content, trigger: trigger)
             
             // we use withCompletionHandler to take another action when the notification is clicked.
@@ -52,5 +51,21 @@ class ViewController: UIViewController {
 extension ViewController : UNUserNotificationCenterDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.banner , .sound , .badge])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let app = UIApplication.shared
+        
+        if app.applicationState == .active{
+            print("clicked when on foregorund.")
+            app.applicationIconBadgeNumber = 0
+        }
+        
+        if app.applicationState == .inactive{
+            print("clicked when on background.")
+            app.applicationIconBadgeNumber = 0
+        }
+        
+        completionHandler()
     }
 }

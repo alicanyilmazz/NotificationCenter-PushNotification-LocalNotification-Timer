@@ -516,4 +516,43 @@ extension ActionViewController : UNUserNotificationCenterDelegate{
 }
 
    
+```  
+
+### Timer
+
+> Timer is the structure that allows us to run code pieces at certain time intervals.
+
+> In order for the notifications to run in the foreground and the responses of the actions to be captured, the extension must be connected to the viewcontroller.
+
+```swift
+           
+class TimerViewController: UIViewController {
+    
+    var counter : Timer?
+    var counter1 : Int = 1
+    
+    @IBOutlet weak var outputLbl: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        outputLbl.text = ""
+    }
+    
+    
+    @IBAction func startBtnClicked(_ sender: UIButton) {
+        counter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(forwardCounter), userInfo: nil, repeats: true)
+    }
+    
+    @objc func forwardCounter(){
+        outputLbl.text = String(counter1)
+        counter1 += 1
+        
+        if counter1 > 6{
+            counter?.invalidate()
+            outputLbl.text = "Time Ended."
+            counter1 = 1
+        }
+    }
+}
+   
 ``` 

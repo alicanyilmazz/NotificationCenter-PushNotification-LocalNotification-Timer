@@ -329,3 +329,43 @@ extension ViewController : UNUserNotificationCenterDelegate{
 
 ### Adding Action to Notification
 
+> Action buttons can be added to notifications
+
+#### Creating Actions
+
+```swift
+   import UIKit
+   import UserNotifications
+   
+       @IBAction func sendNotification(_ sender: UIButton) {
+        if permissionControl{
+            
+            // option : .foreground -> Opens the Application when clicked | .destructive --> clear the notification
+            let acceptAction = UNNotificationAction(identifier: "acceptActionId", title: "accept", options: .foreground)
+            let rejectAction = UNNotificationAction(identifier: "rejectActionId", title: "reject", options: .foreground)
+            let deleteAction = UNNotificationAction(identifier: "deleteActionId", title: "delete", options: .destructive)
+            
+            let questionCategory = UNNotificationCategory(identifier: "categoryId", actions: [acceptAction,rejectAction,deleteAction], intentIdentifiers: [], options: [])
+            
+            UNUserNotificationCenter.current().setNotificationCategories([questionCategory])
+            
+            let content = UNMutableNotificationContent()
+            content.title = "New Season"
+            content.subtitle = "Big Sale"
+            content.body = "Would you like to buy something?"
+            content.badge = 1
+            content.sound = UNNotificationSound.default
+            
+            content.categoryIdentifier = "categoryId"
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+            let notificationRequest = UNNotificationRequest(identifier: "XNotification", content: content, trigger: trigger)
+            
+            // we use withCompletionHandler to take another action when the notification is clicked.
+            UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
+        }
+    }
+   
+``` 
+
+

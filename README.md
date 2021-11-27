@@ -251,6 +251,18 @@ extension ViewController : UNUserNotificationCenterDelegate{
 }
     
 ```
+
+> Important : To reset the bagde number when the application is opened, we must write the following code into the sceneDidEnterBackground method in Scene Delegate.
+
+```swift
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        // Called as the scene transitions from the foreground to the background.
+        // Use this method to save data, release shared resources, and store enough scene-specific state information
+        // to restore the scene back to its current state.
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+```
+
 ### Repeated Notification
 
 > Repeated statements must be a minimum of 60 seconds.
